@@ -11,35 +11,35 @@ namespace WebApplication1.Controllers
         private readonly ILogger<CarSensorsController> _logger = logger;
 
         [HttpPost("{carId}/speed")]
-        public IActionResult SaveSpeedData(Guid carId, [FromBody] SpeedSensorModel speedData)
+        public IActionResult SaveSpeedData(string carId, [FromBody] SpeedSensorModel speedData)
         {
             Console.WriteLine(carId + " --- " + speedData);
             return Ok();
         }
 
         [HttpPost("{carId}/rotation")]
-        public IActionResult SaveRotationData(Guid carId, [FromBody] GyroscopeModel rotationData)
+        public IActionResult SaveRotationData(string carId, [FromBody] GyroscopeModel rotationData)
         {
             Console.WriteLine(carId + " --- " + rotationData);
             return Ok();
         }
 
         [HttpPost("{carId}/position")]
-        public IActionResult SavePositionData(Guid carId, [FromBody] GpsSensorModel gpsData)
+        public IActionResult SavePositionData(string carId, [FromBody] GpsSensorModel gpsData)
         {
             Console.WriteLine($"Position: {carId} --- {gpsData}");
             return Ok();
         }
 
         [HttpPost("{carId}/temperature")]
-        public IActionResult SaveTemperatureData(Guid carId, [FromBody] TemperatureSensorModel tempData)
+        public IActionResult SaveTemperatureData(string carId, [FromBody] TemperatureSensorModel tempData)
         {
             Console.WriteLine($"Temperature: {carId} --- {tempData}");
             return Ok();
         }
 
         [HttpGet("{carId}")]
-        public IEnumerable<Car> GetCar(int carId)
+        public IEnumerable<Car> GetCar(string carId)
         {
             throw new NotImplementedException();
         }

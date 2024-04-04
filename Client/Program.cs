@@ -20,7 +20,7 @@ foreach (ISensor sensor in sensors)
         while (true)
         {
             var sensorValue = sensor.ToJson();
-            ProtocolInterface protocol = new Http(sensor.EndPoint, $"http://192.168.101.178:5273/cars/{id}");
+            ProtocolInterface protocol = new Http(sensor.EndPoint, $" http://localhost:5273/cars/{id}");
 
             protocol.Send(sensorValue);
 

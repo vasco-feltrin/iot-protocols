@@ -2,16 +2,16 @@
 using NetCoreClient.Protocols;
 
 // define sensors
-List<ISensorInterface> sensors = new();
+List<ISensor> sensors = new();
 sensors.Add(new VirtualSpeedSensor());
-sensors.Add(new VirtualGpsSensor())
+sensors.Add(new VirtualGpsSensor());
 // define protocol
 ProtocolInterface protocol = new Http("http://localhost:8011/cars/123");
 
 // send data to server
 while (true)
 {
-    foreach (ISensorInterface sensor in sensors)
+    foreach (ISensor sensor in sensors)
     {
 
 

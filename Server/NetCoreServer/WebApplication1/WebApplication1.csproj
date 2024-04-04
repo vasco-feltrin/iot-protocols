@@ -15,4 +15,8 @@
     <ProjectReference Include="..\..\..\Shared\Models\Models\Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>

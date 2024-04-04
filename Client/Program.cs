@@ -8,7 +8,6 @@ sensors.Add(new VirtualGpsSensor());
 sensors.Add(new VirtualGyroscopeSensor());
 sensors.Add(new VirtualGyroscopeSensor());
 // define protocol
-ProtocolInterface protocol = new Http("http://localhost:8011/cars/123");
 
 // send data to server
 
@@ -20,6 +19,7 @@ foreach (ISensor sensor in sensors)
         while (true)
         {
             var sensorValue = sensor.ToJson();
+            ProtocolInterface protocol = new Http(sensor.EndPoint, "http://localhost:8011/cars/123");
 
             protocol.Send(sensorValue);
 

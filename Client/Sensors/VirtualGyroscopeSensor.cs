@@ -16,6 +16,7 @@ namespace NetCoreClient.Sensors
         {
             Random = new Random();
         }
+        public string EndPoint => "";
 
         public GyroscopeModel Rotation()
         {

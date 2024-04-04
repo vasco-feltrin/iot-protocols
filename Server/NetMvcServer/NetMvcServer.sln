@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMvcServer", "NetMvcServer\NetMvcServer.csproj", "{3560038D-F676-48CA-BEEE-C8BAF77BDF6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3560038D-F676-48CA-BEEE-C8BAF77BDF6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3560038D-F676-48CA-BEEE-C8BAF77BDF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3560038D-F676-48CA-BEEE-C8BAF77BDF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3560038D-F676-48CA-BEEE-C8BAF77BDF6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ADDFFAF5-5540-4339-9270-DA978BD2D321}
+	EndGlobalSection
+EndGlobal

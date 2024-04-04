@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Text;
 
 namespace NetCoreClient.Protocols
 {
@@ -17,9 +18,11 @@ namespace NetCoreClient.Protocols
         public async void Send(string data)
         {
             var client = new HttpClient();
-            client.BaseAddress = new Uri(Url);
+            //client.BaseAddress = new Uri(Url);
 
-            var result = await client.PostAsync(Endpoint, new StringContent(data));
+            var endpointUrl = new Uri(Url) + Endpoint;
+
+            var result = await client.PostAsync(endpointUrl, new StringContent(data,Encoding.UTF8,"application/json"));
 
             Console.Out.WriteLine(result.StatusCode);
         }

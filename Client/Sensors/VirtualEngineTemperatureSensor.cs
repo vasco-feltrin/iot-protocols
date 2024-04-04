@@ -16,7 +16,7 @@ namespace NetCoreClient.Sensors
         {
             Random = new Random();
         }
-        public string EndPoint => "/0/Temperature";
+        public string EndPoint => "/Temperature";
 
         public TemperatureSensorModel Temperature()
         {

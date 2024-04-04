@@ -1,12 +1,13 @@
 ﻿using NetCoreClient.Sensors;
 using NetCoreClient.Protocols;
-
+using System.Reflection.Metadata;
+Guid id = Guid.Parse("A233CBE4-8FC4-4EB2-9D7B-02705A4F0716");
 // define sensors
 List<ISensor> sensors = new();
 sensors.Add(new VirtualSpeedSensor());
 sensors.Add(new VirtualGpsSensor());
 sensors.Add(new VirtualGyroscopeSensor());
-//sensors.Add(new VirtualEngineTemperatureSensor());
+sensors.Add(new VirtualEngineTemperatureSensor());
 // define protocol
 
 // send data to server
@@ -19,7 +20,7 @@ foreach (ISensor sensor in sensors)
         while (true)
         {
             var sensorValue = sensor.ToJson();
-            ProtocolInterface protocol = new Http(sensor.EndPoint, "http://localhost:5273/cars");
+            ProtocolInterface protocol = new Http(sensor.EndPoint, $"http://192.168.101.178:5273/cars/{id}");
 
             protocol.Send(sensorValue);
 
@@ -29,5 +30,5 @@ foreach (ISensor sensor in sensors)
         }
     });
     _.Start();
-    Console.ReadKey();
 }
+Console.ReadKey();

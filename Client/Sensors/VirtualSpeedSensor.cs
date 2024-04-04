@@ -11,7 +11,7 @@ namespace NetCoreClient.Sensors
         {
             Random = new Random();
         }
-        public string EndPoint => "/0/speed";
+        public string EndPoint => "/speed";
 
         public SpeedSensorModel Speed()
         {

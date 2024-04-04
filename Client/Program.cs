@@ -13,6 +13,9 @@ while (true)
 {
     foreach (ISensorInterface sensor in sensors)
     {
+
+
+
         var sensorValue = sensor.ToJson();
 
         protocol.Send(sensorValue);

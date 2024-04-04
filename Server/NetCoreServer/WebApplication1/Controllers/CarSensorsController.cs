@@ -31,7 +31,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost("{carId}/temperature")]
-        public IActionResult SaveTemperatureData(int carId, [FromBody] EngineTemperatureSensorModel tempData)
+        public IActionResult SaveTemperatureData(int carId, [FromBody] TemperatureSensorModel tempData)
         {
             Console.WriteLine($"Temperature: {carId} --- {tempData}");
             return Ok();

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace NetCoreClient.Sensors
 {
-    internal class VirtualTemperatureSensor:ITemperatureSensor
+    internal class VirtualEngineTemperatureSensor:ITemperatureSensor
     {
         private readonly Random Random;
 
-        public VirtualTemperatureSensor()
+        public VirtualEngineTemperatureSensor()
         {
             Random = new Random();
         }

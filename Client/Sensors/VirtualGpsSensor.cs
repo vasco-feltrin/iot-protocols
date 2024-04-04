@@ -17,7 +17,7 @@ namespace NetCoreClient.Sensors
             Random = new Random();
         }
 
-        public string EndPoint => "";
+        public string EndPoint => "/0/position";
 
         public GpsSensorModel Position()
         {

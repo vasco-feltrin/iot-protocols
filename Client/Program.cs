@@ -5,7 +5,8 @@ using NetCoreClient.Protocols;
 List<ISensor> sensors = new();
 sensors.Add(new VirtualSpeedSensor());
 sensors.Add(new VirtualGpsSensor());
-sensors.Add(new VirtualGpsSensor());
+sensors.Add(new VirtualGyroscopeSensor());
+sensors.Add(new VirtualGyroscopeSensor());
 // define protocol
 ProtocolInterface protocol = new Http("http://localhost:8011/cars/123");
 

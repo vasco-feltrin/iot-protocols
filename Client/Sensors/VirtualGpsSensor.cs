@@ -17,6 +17,8 @@ namespace NetCoreClient.Sensors
             Random = new Random();
         }
 
+        public string EndPoint => "/0/position";
+
         public GpsSensorModel Position()
         {
             return new GpsSensorModel() { Altitude = Random.NextDouble(), Latitude = Random.NextDouble(), Longitude = Random.NextDouble() };
@@ -26,5 +28,6 @@ namespace NetCoreClient.Sensors
         {
             return JsonSerializer.Serialize(Position());
         }
+        
     }
 }

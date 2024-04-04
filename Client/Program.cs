@@ -5,9 +5,9 @@ using NetCoreClient.Protocols;
 List<ISensor> sensors = new();
 sensors.Add(new VirtualSpeedSensor());
 sensors.Add(new VirtualGpsSensor());
-sensors.Add(new VirtualGpsSensor());
+sensors.Add(new VirtualGyroscopeSensor());
+//sensors.Add(new VirtualEngineTemperatureSensor());
 // define protocol
-ProtocolInterface protocol = new Http("http://localhost:8011/cars/123");
 
 // send data to server
 
@@ -19,6 +19,7 @@ foreach (ISensor sensor in sensors)
         while (true)
         {
             var sensorValue = sensor.ToJson();
+            ProtocolInterface protocol = new Http(sensor.EndPoint, "http://192.168.228.1:5273/cars");
 
             protocol.Send(sensorValue);
 
@@ -27,4 +28,6 @@ foreach (ISensor sensor in sensors)
             Thread.Sleep(1000);
         }
     });
+    _.Start();
+    Console.ReadKey();
 }

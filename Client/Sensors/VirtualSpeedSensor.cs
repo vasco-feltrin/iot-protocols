@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace NetCoreClient.Sensors
 {
-    class VirtualSpeedSensor : ISpeedSensor, ISensor
+    class VirtualSpeedSensor : ISpeedSensor
     {
         private readonly Random Random;
 
@@ -11,6 +11,7 @@ namespace NetCoreClient.Sensors
         {
             Random = new Random();
         }
+        public string EndPoint => "/0/speed";
 
         public SpeedSensorModel Speed()
         {

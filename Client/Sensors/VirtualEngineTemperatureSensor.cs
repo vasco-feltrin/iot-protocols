@@ -8,24 +8,24 @@ using System.Threading.Tasks;
 
 namespace NetCoreClient.Sensors
 {
-    internal class VirtualGyroscopeSensor : IGyroscopeSensor
+    internal class VirtualEngineTemperatureSensor:ITemperatureSensor
     {
         private readonly Random Random;
 
-        public VirtualGyroscopeSensor()
+        public VirtualEngineTemperatureSensor()
         {
             Random = new Random();
         }
-        public string EndPoint => "/0/rotation";
+        public string EndPoint => "";
 
-        public GyroscopeModel Rotation()
+        public TemperatureSensorModel Temperature()
         {
-            return new GyroscopeModel() { XAxis=Random.NextDouble(), YAxis=Random.NextDouble(), ZAxis=Random.NextDouble() };
+            return new TemperatureSensorModel() { Celsius = Random.NextDouble() };
         }
 
         public string ToJson()
         {
-            return JsonSerializer.Serialize(Rotation());
+            return JsonSerializer.Serialize(Temperature());
         }
     }
 }

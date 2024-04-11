@@ -1,6 +1,6 @@
 ﻿using NetCoreClient.Sensors;
 using NetCoreClient.Protocols;
-using System.Reflection.Metadata;
+
 Guid id = Guid.Parse("A233CBE4-8FC4-4EB2-9D7B-02705A4F0716");
 // define sensors
 List<ISensor> sensors = new();

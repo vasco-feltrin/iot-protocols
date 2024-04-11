@@ -2,7 +2,7 @@
 
 public class TemperatureSensorModel
 {
-    public long Time { get; set; }
+    public required long Time { get; set; }
 
     public required double Celsius { get; set; }
 }

@@ -2,7 +2,7 @@
 
 public class GyroscopeModel
 {
-    public long Time { get; set; }
+    public required long Time { get; set; }
 
     public required double XAxis { get; set; }
     public required double YAxis { get; set;}

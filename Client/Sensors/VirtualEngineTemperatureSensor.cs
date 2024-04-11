@@ -19,7 +19,7 @@ namespace NetCoreClient.Sensors
         public string EndPoint => "/Temperature";
         public TemperatureSensorModel Temperature()
         {
-            return new TemperatureSensorModel() { Celsius = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(), Id = Guid.Parse("FA7B7F9F-5719-43CF-885C-8E338584377D") };
+            return new TemperatureSensorModel() { Celsius = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(), Id = Conf.EngineTemperatureSensorId };
         }
 
         public string ToJson()

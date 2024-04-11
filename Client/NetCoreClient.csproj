@@ -15,4 +15,10 @@
     <ProjectReference Include="..\Shared\Models\Models\Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

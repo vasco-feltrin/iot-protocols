@@ -1,7 +1,13 @@
 ﻿using NetCoreClient.Sensors;
 using NetCoreClient.Protocols;
+using Microsoft.Extensions.Configuration;
+using NetCoreClient;
 
-Guid id = Guid.Parse("A233CBE4-8FC4-4EB2-9D7B-02705A4F0716");
+
+
+// Access settings
+
+
 // define sensors
 List<ISensor> sensors = new();
 sensors.Add(new VirtualSpeedSensor());
@@ -20,7 +26,7 @@ foreach (ISensor sensor in sensors)
         while (true)
         {
             var sensorValue = sensor.ToJson();
-            ProtocolInterface protocol = new Http(sensor.EndPoint, $" http://localhost:5273/cars/{id}");
+            ProtocolInterface protocol = new Http(sensor.EndPoint, $" http://localhost:5273/cars/{Conf.CarId}");
 
             protocol.Send(sensorValue);
 

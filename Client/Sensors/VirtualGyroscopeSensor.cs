@@ -20,7 +20,7 @@ namespace NetCoreClient.Sensors
 
         public GyroscopeModel Rotation()
         {
-            return new GyroscopeModel() { XAxis=Random.NextDouble(), YAxis=Random.NextDouble(), ZAxis=Random.NextDouble() , Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),Id=Guid.Parse("8B95D1B7-4931-49C4-89D2-C3C3DF7CDD59") };
+            return new GyroscopeModel() { XAxis=Random.NextDouble(), YAxis=Random.NextDouble(), ZAxis=Random.NextDouble() , Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),Id=Conf.SpeedSensorId };
         }
 
         public string ToJson()

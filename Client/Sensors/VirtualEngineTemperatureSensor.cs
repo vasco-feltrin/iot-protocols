@@ -17,10 +17,9 @@ namespace NetCoreClient.Sensors
             Random = new Random();
         }
         public string EndPoint => "/Temperature";
-
         public TemperatureSensorModel Temperature()
         {
-            return new TemperatureSensorModel() { Celsius = Random.NextDouble() };
+            return new TemperatureSensorModel() { Celsius = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds() };
         }
 
         public string ToJson()

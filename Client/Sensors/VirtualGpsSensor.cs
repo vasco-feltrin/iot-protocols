@@ -21,7 +21,7 @@ namespace NetCoreClient.Sensors
 
         public GpsSensorModel Position()
         {
-            return new GpsSensorModel() { Altitude = Random.NextDouble(), Latitude = Random.NextDouble(), Longitude = Random.NextDouble() };
+            return new GpsSensorModel() { Altitude = Random.NextDouble(), Latitude = Random.NextDouble(), Longitude = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds() };
         }
 
         public string ToJson()

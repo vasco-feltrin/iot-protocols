@@ -2,6 +2,8 @@
 {
     public class SpeedSensorModel
     {
-       public required double KilometersPerHour { get; set; }
+        public long Time { get; set; }
+
+        public required double KilometersPerHour { get; set; }
     }
 }

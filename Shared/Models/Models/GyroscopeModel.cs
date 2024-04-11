@@ -2,6 +2,8 @@
 
 public class GyroscopeModel
 {
+    public required Guid Id { get; set; }
+
     public required long Time { get; set; }
 
     public required double XAxis { get; set; }

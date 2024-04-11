@@ -15,7 +15,7 @@ namespace NetCoreClient.Sensors
 
         public SpeedSensorModel Speed()
         {
-            var speed = new SpeedSensorModel() { KilometersPerHour = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds() };
+            var speed = new SpeedSensorModel() { KilometersPerHour = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),Id=Guid.Parse("CA09AB32-DF42-4770-AF34-736A44AF3D89") };
 
             return speed;
         }

@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using NetCoreServer.Persistance;
-using WebApplication1.Model;
 
 namespace WebApplication1.Controllers;
 
@@ -42,7 +41,7 @@ public class CarSensorsController(DatabaseService dbService) : ControllerBase
     }
 
     [HttpGet("{carId}")]
-    public IEnumerable<Car> GetCar(string carId)
+    public IEnumerable<CarModel> GetCar(string carId)
     {
         throw new NotImplementedException();
     }

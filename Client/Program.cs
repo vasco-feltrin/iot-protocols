@@ -4,7 +4,7 @@ using NetCoreClient;
 
 
 // Access settings
-VirtualCar car = new VirtualCar();
+VirtualCar car = new();
 
 // define sensors
 //List<ISensor> sensors = new();
@@ -27,7 +27,7 @@ VirtualCar car = new VirtualCar();
             IProtocolInterface protocol = new Http(car.EndPoint, $" http://localhost:5273/cars/{Conf.CarId}");
         
             //protocol.Send(sensorValue);
-            protocol = new Mqtt(car.EndPoint, $"cars/");
+            protocol = new Mqtt(car.EndPoint, "cars/");
             protocol.Send(sensorValue);
             Console.WriteLine("Data sent: " + sensorValue);
 

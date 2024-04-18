@@ -1,28 +1,27 @@
 ﻿using Models;
 using System.Text.Json;
 
-namespace NetCoreClient.Sensors
+namespace NetCoreClient.Sensors;
+
+class VirtualSpeedSensor : ISpeedSensor
 {
-    class VirtualSpeedSensor : ISpeedSensor
+    private readonly Random Random;
+
+    public VirtualSpeedSensor()
     {
-        private readonly Random Random;
+        Random = new Random();
+    }
+    public string EndPoint => "/speed";
 
-        public VirtualSpeedSensor()
-        {
-            Random = new Random();
-        }
-        public string EndPoint => "/speed";
+    public SpeedSensorModel Speed()
+    {
+        var speed = new SpeedSensorModel() { KilometersPerHour = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),Id=Conf.SpeedSensorId };
 
-        public SpeedSensorModel Speed()
-        {
-            var speed = new SpeedSensorModel() { KilometersPerHour = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),Id=Conf.SpeedSensorId };
+        return speed;
+    }
 
-            return speed;
-        }
-
-        public string ToJson()
-        {
-            return JsonSerializer.Serialize(Speed());
-        }
+    public string ToJson()
+    {
+        return JsonSerializer.Serialize(Speed());
     }
 }

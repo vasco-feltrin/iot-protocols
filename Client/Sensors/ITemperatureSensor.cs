@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetCoreClient.Sensors
+namespace NetCoreClient.Sensors;
+
+internal interface ITemperatureSensor:ISensor
 {
-    internal interface ITemperatureSensor:ISensor
-    {
-        TemperatureSensorModel Temperature();
-    }
+    TemperatureSensorModel Temperature();
 }

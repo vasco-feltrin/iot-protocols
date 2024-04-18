@@ -1,9 +1,8 @@
 ﻿using Models;
 
-namespace NetCoreClient.Sensors
+namespace NetCoreClient.Sensors;
+
+interface ISpeedSensor: ISensor
 {
-    interface ISpeedSensor: ISensor
-    {
-        SpeedSensorModel Speed();
-    }
+    SpeedSensorModel Speed();
 }

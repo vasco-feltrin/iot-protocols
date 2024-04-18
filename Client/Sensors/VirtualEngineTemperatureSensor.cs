@@ -6,25 +6,24 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace NetCoreClient.Sensors
+namespace NetCoreClient.Sensors;
+
+internal class VirtualEngineTemperatureSensor:ITemperatureSensor
 {
-    internal class VirtualEngineTemperatureSensor:ITemperatureSensor
+    private readonly Random Random;
+
+    public VirtualEngineTemperatureSensor()
     {
-        private readonly Random Random;
+        Random = new Random();
+    }
+    public string EndPoint => "/Temperature";
+    public TemperatureSensorModel Temperature()
+    {
+        return new TemperatureSensorModel() { Celsius = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(), Id = Conf.EngineTemperatureSensorId };
+    }
 
-        public VirtualEngineTemperatureSensor()
-        {
-            Random = new Random();
-        }
-        public string EndPoint => "/Temperature";
-        public TemperatureSensorModel Temperature()
-        {
-            return new TemperatureSensorModel() { Celsius = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(), Id = Conf.EngineTemperatureSensorId };
-        }
-
-        public string ToJson()
-        {
-            return JsonSerializer.Serialize(Temperature());
-        }
+    public string ToJson()
+    {
+        return JsonSerializer.Serialize(Temperature());
     }
 }

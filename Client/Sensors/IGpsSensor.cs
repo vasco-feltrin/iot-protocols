@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetCoreClient.Sensors
+namespace NetCoreClient.Sensors;
+
+internal interface IGpsSensor: ISensor
 {
-    internal interface IGpsSensor: ISensor
-    {
-        GpsSensorModel Position();
-    }
+    GpsSensorModel Position();
 }

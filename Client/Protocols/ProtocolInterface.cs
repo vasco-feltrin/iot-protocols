@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NetCoreClient.Protocols
+namespace NetCoreClient.Protocols;
+
+interface ProtocolInterface
 {
-    interface ProtocolInterface
-    {
-        void Send(string data);
-    }
+    void Send(string data);
 }

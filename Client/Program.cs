@@ -1,9 +1,6 @@
 ﻿using NetCoreClient.Sensors;
 using NetCoreClient.Protocols;
-using Microsoft.Extensions.Configuration;
 using NetCoreClient;
-using Models;
-
 
 
 // Access settings
@@ -22,12 +19,12 @@ VirtualCar car = new VirtualCar();
 //foreach (ISensor sensor in sensors)
 //{
 
-    Task _ = new Task(() =>
+    Task _ = new(() =>
     {
         while (true)
         {
             var sensorValue = car.ToJson();
-            ProtocolInterface protocol = new Http(car.EndPoint, $" http://localhost:5273/cars/{Conf.CarId}");
+            IProtocolInterface protocol = new Http(car.EndPoint, $" http://localhost:5273/cars/{Conf.CarId}");
         
             //protocol.Send(sensorValue);
             protocol = new Mqtt(car.EndPoint, $"cars/");

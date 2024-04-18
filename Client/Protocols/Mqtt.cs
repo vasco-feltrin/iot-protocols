@@ -1,27 +1,12 @@
 ﻿using MQTTnet;
 using MQTTnet.Client;
 
-
-using MQTTnet.Extensions.ManagedClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace NetCoreClient.Protocols;
 
-public class Mqtt : ProtocolInterface
+public class Mqtt(string endpoint, string topic) : IProtocolInterface
 {
-    private string Endpoint;
-    private string Topic;
     //private HttpWebRequest httpWebRequest;
 
-    public Mqtt(string endpoint, string Topic)
-    {
-        this.Endpoint = endpoint;
-        this.Topic = Topic;
-    }
     public async void Send(string data)
     {
         var options = new MqttClientOptionsBuilder()
@@ -39,7 +24,7 @@ public class Mqtt : ProtocolInterface
 
         // Definizione del messaggio da pubblicare.
         var message = new MqttApplicationMessageBuilder()
-            .WithTopic(Topic+Endpoint) // Specifica il topic del messaggio.
+            .WithTopic(topic+endpoint) // Specifica il topic del messaggio.
             .WithPayload(data) // Specifica il contenuto del messaggio.
             .WithQualityOfServiceLevel(0) // Imposta la QoS del messaggio.
             .WithRetainFlag() // Imposta il flag di retain.

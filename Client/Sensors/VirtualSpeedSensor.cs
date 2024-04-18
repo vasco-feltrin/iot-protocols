@@ -3,19 +3,15 @@ using System.Text.Json;
 
 namespace NetCoreClient.Sensors;
 
-class VirtualSpeedSensor : ISpeedSensor
+internal class VirtualSpeedSensor : ISpeedSensor
 {
-    private readonly Random Random;
+    private readonly Random _random = new();
 
-    public VirtualSpeedSensor()
-    {
-        Random = new Random();
-    }
     public string EndPoint => "/speed";
 
     public SpeedSensorModel Speed()
     {
-        var speed = new SpeedSensorModel() { KilometersPerHour = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),Id=Conf.SpeedSensorId };
+        var speed = new SpeedSensorModel() { KilometersPerHour = _random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),Id=Conf.SpeedSensorId };
 
         return speed;
     }

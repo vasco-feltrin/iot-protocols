@@ -1,25 +1,21 @@
-﻿using Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
+using Models;
 
 namespace NetCoreClient.Sensors;
 
-internal class VirtualEngineTemperatureSensor:ITemperatureSensor
+internal class VirtualEngineTemperatureSensor : ITemperatureSensor
 {
-    private readonly Random Random;
+    private readonly Random _random = new();
 
-    public VirtualEngineTemperatureSensor()
-    {
-        Random = new Random();
-    }
     public string EndPoint => "/Temperature";
+
     public TemperatureSensorModel Temperature()
     {
-        return new TemperatureSensorModel() { Celsius = Random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(), Id = Conf.EngineTemperatureSensorId };
+        return new TemperatureSensorModel
+        {
+            Celsius = _random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+            Id = Conf.EngineTemperatureSensorId
+        };
     }
 
     public string ToJson()

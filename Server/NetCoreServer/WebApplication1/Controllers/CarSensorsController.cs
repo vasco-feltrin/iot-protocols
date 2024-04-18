@@ -7,10 +7,8 @@ namespace WebApplication1.Controllers;
 
 [ApiController]
 [Route("cars")]
-public class CarSensorsController(ILogger<CarSensorsController> logger, DatabaseService dbService) : ControllerBase
+public class CarSensorsController(DatabaseService dbService) : ControllerBase
 {
-    private readonly ILogger<CarSensorsController> _logger = logger;
-
     [HttpPost("{carId}/speed")]
     public IActionResult SaveSpeedData(string carId, [FromBody] SpeedSensorModel speedData)
     {

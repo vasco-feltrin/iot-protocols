@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿namespace NetCoreClient.Protocols;
 
-namespace NetCoreClient.Protocols;
-
-interface ProtocolInterface
+public interface IProtocolInterface
 {
-    void Send(string data);
+    public void Send(string data);
 }

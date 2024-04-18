@@ -1,18 +1,17 @@
-﻿using System.Net;
-using System.Text;
+﻿using System.Text;
 
 namespace NetCoreClient.Protocols;
 
-class Http : ProtocolInterface
+class Http : IProtocolInterface
 {
-    private string Endpoint;
-    private string Url;
+    private readonly string _endpoint;
+    private readonly string _url;
     //private HttpWebRequest httpWebRequest;
 
-    public Http(string endpoint,string Url)
+    public Http(string endpoint,string url)
     {
-        this.Endpoint = endpoint;
-        this.Url = Url;
+        _endpoint = endpoint;
+        _url = url;
     }
 
     public async void Send(string data)
@@ -20,7 +19,7 @@ class Http : ProtocolInterface
         var client = new HttpClient();
         //client.BaseAddress = new Uri(Url);
 
-        var endpointUrl = new Uri(Url) + Endpoint;
+        var endpointUrl = new Uri(_url) + _endpoint;
 
         var result = await client.PostAsync(endpointUrl, new StringContent(data,Encoding.UTF8,"application/json"));
 

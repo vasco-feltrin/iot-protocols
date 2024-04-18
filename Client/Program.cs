@@ -27,9 +27,10 @@ foreach (ISensor sensor in sensors)
         {
             var sensorValue = sensor.ToJson();
             ProtocolInterface protocol = new Http(sensor.EndPoint, $" http://localhost:5273/cars/{Conf.CarId}");
-
+        
+            //protocol.Send(sensorValue);
+            protocol = new Mqtt(sensor.EndPoint, $"cars/{Conf.CarId}");
             protocol.Send(sensorValue);
-
             Console.WriteLine("Data sent: " + sensorValue);
 
             Thread.Sleep(1000);

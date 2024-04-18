@@ -15,7 +15,8 @@ namespace NetCoreClient
         public static Guid GpsSensorId = Guid.Parse(conf["GpsSensorId"]);
         public static Guid GyroscopeSensorId = Guid.Parse(conf["GyroscopeSensorId"]);
         public static Guid EngineTemperatureSensorId = Guid.Parse(conf["EngineTemperatureSensorId"]);
-        
+        public static string ServerHttpUrl = conf["ServerHttpUrl"];
+        public static string BrokerMqttUrl = conf["BrokerMqttUrl"];
 
     }
 }

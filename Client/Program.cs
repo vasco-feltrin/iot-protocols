@@ -2,34 +2,35 @@
 using NetCoreClient.Protocols;
 using Microsoft.Extensions.Configuration;
 using NetCoreClient;
+using Models;
 
 
 
 // Access settings
-
+VirtualCar car = new VirtualCar();
 
 // define sensors
-List<ISensor> sensors = new();
-sensors.Add(new VirtualSpeedSensor());
-sensors.Add(new VirtualGpsSensor());
-sensors.Add(new VirtualGyroscopeSensor());
-sensors.Add(new VirtualEngineTemperatureSensor());
+//List<ISensor> sensors = new();
+//sensors.Add(new VirtualSpeedSensor());
+//sensors.Add(new VirtualGpsSensor());
+//sensors.Add(new VirtualGyroscopeSensor());
+//sensors.Add(new VirtualEngineTemperatureSensor());
 // define protocol
 
 // send data to server
 
-foreach (ISensor sensor in sensors)
-{
+//foreach (ISensor sensor in sensors)
+//{
 
     Task _ = new Task(() =>
     {
         while (true)
         {
-            var sensorValue = sensor.ToJson();
-            ProtocolInterface protocol = new Http(sensor.EndPoint, $" http://localhost:5273/cars/{Conf.CarId}");
+            var sensorValue = car.ToJson();
+            ProtocolInterface protocol = new Http(car.EndPoint, $" http://localhost:5273/cars/{Conf.CarId}");
         
             //protocol.Send(sensorValue);
-            protocol = new Mqtt(sensor.EndPoint, $"cars/{Conf.CarId}");
+            protocol = new Mqtt(car.EndPoint, $"cars/");
             protocol.Send(sensorValue);
             Console.WriteLine("Data sent: " + sensorValue);
 
@@ -37,5 +38,5 @@ foreach (ISensor sensor in sensors)
         }
     });
     _.Start();
-}
+//}
 Console.ReadKey();

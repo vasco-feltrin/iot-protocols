@@ -11,7 +11,7 @@ internal class VirtualGpsSensor : IGpsSensor
 
     public GpsSensorModel Position()
     {
-        return new GpsSensorModel() { Altitude = _random.NextDouble(), Latitude = _random.NextDouble(), Longitude = _random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(), Id=Conf.GpsSensorId };
+        return new GpsSensorModel { Altitude = _random.NextDouble(), Latitude = _random.NextDouble(), Longitude = _random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(), Id=Conf.GpsSensorId };
     }
 
     public string ToJson()

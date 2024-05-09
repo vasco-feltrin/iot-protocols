@@ -1,5 +1,5 @@
-﻿using Models;
-using System.Text.Json;
+﻿using System.Text.Json;
+using Models;
 
 namespace NetCoreClient.Sensors;
 
@@ -11,7 +11,11 @@ internal class VirtualSpeedSensor : ISpeedSensor
 
     public SpeedSensorModel Speed()
     {
-        var speed = new SpeedSensorModel() { KilometersPerHour = _random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),Id=Conf.SpeedSensorId };
+        SpeedSensorModel speed = new()
+        {
+            KilometersPerHour = _random.NextDouble(), Time = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+            Id = Conf.SpeedSensorId
+        };
 
         return speed;
     }
